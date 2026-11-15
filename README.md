@@ -28,5 +28,5 @@ Open it once online; afterwards it works offline.
 ## Updating
 Change files, then bump `VERSION` in `sw.js` so phones pick up the new cache.
 
-## To finish
-- Paste the form's printed notes verbatim into `config.js` (`FORM_NOTES`).
+## Printed notes
+The form's printed notes live in `config.js` (`FORM_NOTES`) and are printed in the PDF.
