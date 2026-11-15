@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SDE Reconciliation</title>
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#0f766e">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><h1>SDE Stock &amp; Cash Reconciliation</h1><small>Demo prototype - data stays on this device</small></header>
+<main>
+
+  <details id="settings">
+    <summary>Settings (appear in PDF header)</summary>
+    <div class="grid2">
+      <label>SDE Name<input id="s_name" autocomplete="off"></label>
+      <label>Ground No<input id="s_ground" autocomplete="off"></label>
+      <label>C&amp;C<input id="s_cc" placeholder="Booker - Aldershot" autocomplete="off"></label>
+      <label>Period<input id="s_period" autocomplete="off"></label>
+      <label>Week<input id="s_week" autocomplete="off"></label>
+    </div>
+  </details>
+
+  <section class="picker">
+    <button id="prev" aria-label="Previous week">&lsaquo;</button>
+    <input type="date" id="date" aria-label="Pick a date">
+    <button id="next" aria-label="Next week">&rsaquo;</button>
+  </section>
+  <p id="weekLabel" class="muted"></p>
+  <nav id="tabs"></nav>
+
+  <section class="card">
+    <h2 id="dayTitle"></h2>
+    <div id="fields"></div>
+  </section>
+
+  <div id="banner" hidden></div>
+
+  <section class="card">
+    <h2>Week summary</h2>
+    <div class="tablewrap"><table id="tbl"></table></div>
+    <p class="muted">Tap a row to open that day. Differences use the whole week's totals and show on Friday and the Total row.</p>
+  </section>
+
+  <section class="card">
+    <label>Comments - Standard acc<textarea id="cm_std" rows="2"></textarea></label>
+    <label>Comments - FOC account<textarea id="cm_foc" rows="2"></textarea></label>
+    <label>Comment - other<textarea id="cm_other" rows="2"></textarea></label>
+  </section>
+
+  <section class="actions">
+    <button class="primary" id="pdf">Export PDF</button>
+    <button id="sig">Signature pad<span id="sigState"></span></button>
+    <button id="sample">Load sample data</button>
+    <button class="danger" id="clear">Clear data</button>
+  </section>
+</main>
+
+<dialog id="sigDlg">
+  <p>Sign with your finger</p>
+  <canvas id="pad" width="600" height="240"></canvas>
+  <div class="actions">
+    <button id="sigClear">Redo</button><button id="sigRemove">Remove saved</button>
+    <button class="primary" id="sigSave">Save</button><button id="sigCancel">Cancel</button>
+  </div>
+</dialog>
+
+<script src="lib/jspdf.umd.min.js"></script>
+<script src="lib/jspdf.plugin.autotable.min.js"></script>
+<script src="calc.js"></script>
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
