@@ -238,8 +238,21 @@ $('pdf').onclick = () => {
   if (sig) doc.text(C.uk(new Date()), 142, y + 2.5);
 
   const ground = (s.ground || 'NA').replace(/[^\w-]+/g, '_');
-  doc.save(`SDE_Reconciliation_${ground}_${C.uk(weekStart()).replace(/\//g, '-')}.pdf`);
+  // Show an A4 preview first; the user can then download or open it full-screen.
+  const fname = `SDE_Reconciliation_${ground}_${C.uk(weekStart()).replace(/\//g, '-')}.pdf`;
+  const blob = doc.output('blob');
+  if (pdfUrl) URL.revokeObjectURL(pdfUrl);
+  pdfUrl = URL.createObjectURL(blob); pdfName = fname;
+  $('pdfFrame').src = pdfUrl;
+  $('pdfDlg').showModal();
 };
+let pdfUrl = null, pdfName = '';
+$('pdfDownload').onclick = () => {
+  const a = document.createElement('a'); a.href = pdfUrl; a.download = pdfName;
+  document.body.appendChild(a); a.click(); a.remove();
+};
+$('pdfOpen').onclick = () => window.open(pdfUrl, '_blank');
+$('pdfClose').onclick = () => $('pdfDlg').close();
 
 // ---------- Start ---------------------------------------------------------
 (async function init() {

@@ -30,5 +30,7 @@ tr.tot td { font-weight:700; border-top:3px double #444; }
 td.bad { color:var(--red); font-weight:700; background:#fee2e2; }
 .actions { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:10px 0; }
 dialog { width:min(92vw,660px); border-radius:12px; border:1px solid var(--line); }
+dialog.wide { width:min(96vw,1000px); }
+#pdfFrame { width:100%; aspect-ratio:297/210; border:1px solid var(--line); background:#fff; } /* A4 landscape ratio */
 canvas { width:100%; height:auto; border:2px dashed #888; border-radius:8px; touch-action:none; background:#fff; }
 @media (max-width:420px) { .grid2, #fields { grid-template-columns:1fr; } }

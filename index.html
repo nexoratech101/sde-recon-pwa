@@ -69,6 +69,16 @@
   </div>
 </dialog>
 
+<dialog id="pdfDlg" class="wide">
+  <p>PDF preview (A4 landscape)</p>
+  <iframe id="pdfFrame" title="PDF preview"></iframe>
+  <p class="muted">If the preview is blank (some phones can't show PDFs here), use Download or Open.</p>
+  <div class="actions">
+    <button class="primary" id="pdfDownload">Download PDF</button><button id="pdfOpen">Open full screen</button>
+    <button id="pdfClose">Close</button>
+  </div>
+</dialog>
+
 <script src="lib/jspdf.umd.min.js"></script>
 <script src="lib/jspdf.plugin.autotable.min.js"></script>
 <script src="calc.js"></script>

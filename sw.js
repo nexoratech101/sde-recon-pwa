@@ -1,5 +1,5 @@
 // Service worker: cache the app shell so the app works offline. Bump VERSION when files change.
-const VERSION = 'sde-recon-v1';
+const VERSION = 'sde-recon-v2';
 const FILES = ['./', 'index.html', 'style.css', 'calc.js', 'config.js', 'app.js', 'manifest.webmanifest',
   'lib/jspdf.umd.min.js', 'lib/jspdf.plugin.autotable.min.js', 'icons/icon-192.png', 'icons/icon-512.png'];
 
